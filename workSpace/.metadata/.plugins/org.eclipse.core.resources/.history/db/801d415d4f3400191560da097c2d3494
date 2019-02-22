@@ -1,9 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.jsonObject;
-
-import java.util.List;
-
-public class OrderRequest {
-	private List<Long> orders;
-	
-	
-}

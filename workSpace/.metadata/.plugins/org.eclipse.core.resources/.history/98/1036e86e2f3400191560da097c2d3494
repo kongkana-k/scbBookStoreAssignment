@@ -1,7 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.exception;
-
-public class InvalidParameterException extends Exception {
-	public InternalErrorException(String message){
-		super(message);
-	}
-}

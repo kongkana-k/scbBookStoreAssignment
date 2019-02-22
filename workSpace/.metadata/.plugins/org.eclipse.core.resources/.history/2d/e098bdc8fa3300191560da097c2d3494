@@ -1,8 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.error;
-
-import org.springframework.http.HttpStatus;
-
-public class ErrorResponse {
-   private HttpStatus status;
-   private String message;
-}

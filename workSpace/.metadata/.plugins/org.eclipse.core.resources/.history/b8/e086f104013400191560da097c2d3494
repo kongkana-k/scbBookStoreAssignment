@@ -1,7 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.exception;
-
-public class TokenExpiredException extends Exception {
-	TokenExpiredException(String message){
-		super(message);
-	}
-}

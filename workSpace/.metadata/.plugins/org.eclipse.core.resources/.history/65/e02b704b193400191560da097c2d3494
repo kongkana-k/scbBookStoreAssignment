@@ -1,8 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.utility;
-
-public class JsonResultUtility {
-
-	public static String getJsonResult(String key, String value) {
-		
-	}
-}

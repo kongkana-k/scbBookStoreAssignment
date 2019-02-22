@@ -1,7 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.exception;
-
-public class InternalErrorException extends Exception {
-	public InternalErrorException(String message){
-		super(message);
-	}
-}

@@ -1,9 +1,0 @@
-package com.scb.assignment.bookStoreRestApi.jsonObject;
-
-public class ExternalBook {
-	private Long id;
-	private String bookName;
-	private String author;
-	private String price;
-	private Boolean isRecommended;
-}
