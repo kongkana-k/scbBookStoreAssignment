@@ -1,0 +1,27 @@
+Title: POST: /users/orders
+
+Client -> Book Store API: createOrder(token, orders[bookId])
+Book Store API -> Book Store API: validateInput()
+if: opt (invalid input)
+  Client <-- Book Store API: error("invalid input")
+end
+Book Store API -> Database: findUser(token)
+Book Store API <-- Database: userData
+if: opt (user not found)
+  Client <-- Book Store API: error("invalid token")
+end
+Book Store API -> Book Store API: validateToken()
+if: opt (token expired)
+  Client <-- Book Store API: error("token expired")
+end
+if: loop (orders size)
+  Book Store API -> Database: findBook(bookId)
+  Book Store API <-- Database: bookData
+  if: alt (book not found)
+    Client <-- Book Store API: error("invalid book")
+  else:
+    Book Store API -> Book Store API: sumTotalPrice(bookData.price)
+  end
+end
+Book Store API -> Database: saveUserAndOrders(user, orders)
+CLient <-- Book Store API: orderResponseData(price)

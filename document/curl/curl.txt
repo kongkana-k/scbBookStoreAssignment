@@ -1,0 +1,18 @@
+
+GET /books
+curl -X GET "http://localhost:8080/books"
+
+POST /users
+curl -X POST "http://localhost:8080/users" -H "Content-Type: application/json" -d {"username":"john.doe","password":"thisismysecret","date_of_birth":"15/01/1985"}
+
+POST /login
+curl -X POST "http://localhost:8080/login" -H "Content-Type: application/json" -d {"username":"john.doe","password":"thisismysecret"}
+
+POST /users/orders
+curl -X POST "http://localhost:8080/users/orders" -H "token: 4Xw1adFbgCmb6EL37loTt3TSWPCW1cffmHKQPRO9DKY=" -H "Content-Type: application/json" -d {"orders":[1,4]}
+
+GET /users
+curl -X GET "http://localhost:8080/users" -H "token: 4Xw1adFbgCmb6EL37loTt3TSWPCW1cffmHKQPRO9DKY="
+
+DELETE /users
+curl -X DELETE "http://localhost:8080/users" -H "token: 4Xw1adFbgCmb6EL37loTt3TSWPCW1cffmHKQPRO9DKY="

@@ -1,0 +1,13 @@
+Title: GET: /books
+
+Client -> Book Store API: getBook()
+Book Store API -> Book Publisher: getRecommendedBooks()
+Book Store API <-- Book Publisher: rcmBooks
+Book Store API -> Book Publisher: getBooks()
+Book Store API <-- Book Publisher: books
+Book Store API -> Book Store API: extBooks = sortAndMergeBooks(rcmBooks, books)
+Book Store API -> Database: findAllBooks()
+Book Store API <-- Database: oldBooks
+Book Store API -> Book Store API: newBooks = findNewBooks(extBooks, oldBooks)
+Book Store API -> Database: saveBooks(newBooks)
+Client <-- Book Store API: extBooks

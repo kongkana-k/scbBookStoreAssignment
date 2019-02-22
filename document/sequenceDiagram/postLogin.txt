@@ -1,0 +1,19 @@
+Title: POST: /login
+
+Client -> Book Store API: login(username, password)
+Book Store API -> Book Store API: validateInput(username, password)
+if: opt (invalid input)
+  Client <-- Book Store API: error("invalid input")
+end
+Book Store API -> Database: findUser(username)
+Book Store API <-- Database: userData
+if: opt (user not found)
+  Client <-- Book Store API: error("invalid username or password")
+end
+Book Store API -> Book Store API: validatePassword(password, userData)
+if: opt (wrong password)
+  Client <-- Book Store API: error("invalid username or password")
+end
+Book Store API -> Book Store API: generateToken(username)
+Book Store API -> Database: saveToken(token, randomKey, expiredTime)
+Client <-- Book Store API: loginResponse(token)

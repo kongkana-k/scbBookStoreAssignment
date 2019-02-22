@@ -1,0 +1,15 @@
+Title: POST: /users
+
+Client -> Book Store API: createUser(username, password, dateOfBirth)
+Book Store API -> Book Store API: validateInput(username, password, dateOfBirth)
+if: opt (invalid input)
+  Client <-- Book Store API: error("invalid input")
+end
+Book Store API -> Database: findUser(username)
+Book Store API <-- Database: userData
+if: opt (user found)
+  Client <-- Book Store API: error("duplicate username")
+end
+Book Store API -> Book Store API: generatePasswordHash(password)
+Book Store API -> Database: saveUser(username, pwdHash, dateOfBirth, salt)
+Client <-- Book Store API: success

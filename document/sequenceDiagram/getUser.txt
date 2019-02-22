@@ -1,0 +1,14 @@
+Title: GET: /users
+
+Client -> Book Store API: getUser(token)
+Book Store API -> Database: findUser(token)
+Book Store API <-- Database: userData
+if: opt (user not found)
+  Client <-- Book Store API: error("invalid token")
+end
+Book Store API -> Book Store API: validateToken(token, userData)
+if: opt (token expired)
+  Client <-- Book Store API: error("token expired")
+end
+Book Store API -> Database: saveUser(newTokenExpiredTime)
+CLient <-- Book Store API: userResponseData
