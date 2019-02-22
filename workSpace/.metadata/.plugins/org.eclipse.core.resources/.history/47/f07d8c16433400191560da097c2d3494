@@ -1,0 +1,16 @@
+package com.scb.assignment.bookStoreRestApi.jsonObject;
+
+public class SuccessObject {
+	private Boolean success;
+
+	public SuccessObject() {
+		super();
+		this.success = true;
+	}
+
+	@Override
+	public String toString() {
+		return "SuccessObject [success=" + success + "]";
+	}
+	
+}

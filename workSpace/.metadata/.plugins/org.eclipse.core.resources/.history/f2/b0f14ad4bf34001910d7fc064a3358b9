@@ -1,0 +1,21 @@
+package com.scb.assignment.bookStoreRestApi.model;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "OrderItems")
+public class OrderItem {
+	private Long id;
+	private Integer amount;
+	@ManyToOne
+	@JoinColumn(name="id", nullable=false)
+	private Order order;
+	@ManyToOne
+	@JoinColumn(name="id", nullable=false)
+	private Book book;
+
+	
+}

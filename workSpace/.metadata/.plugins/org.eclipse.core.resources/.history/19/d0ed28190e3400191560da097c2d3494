@@ -1,0 +1,11 @@
+package com.scb.assignment.bookStoreRestApi.utility;
+
+import java.security.MessageDigest;
+
+public class CryptographUtility {
+	
+	public static String shaToBase64() {
+		
+	}
+	MessageDigest digest;
+}

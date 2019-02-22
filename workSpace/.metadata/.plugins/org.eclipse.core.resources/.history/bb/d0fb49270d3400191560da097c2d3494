@@ -1,0 +1,5 @@
+package com.scb.assignment.bookStoreRestApi.util;
+
+public class CryptographUtility {
+
+}

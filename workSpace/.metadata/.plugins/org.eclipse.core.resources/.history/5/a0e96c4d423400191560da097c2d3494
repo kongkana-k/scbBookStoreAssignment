@@ -1,0 +1,46 @@
+package com.scb.assignment.bookStoreRestApi.exception;
+
+import org.springframework.http.HttpStatus;
+
+public class ExceptionResponse {
+	private Boolean result;
+	private HttpStatus status;
+	private String message;
+
+	public ExceptionResponse(HttpStatus status, String message) {
+		super();
+		this.result = "failed";
+		this.status = status;
+		this.message = message;
+	}
+	
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public HttpStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(HttpStatus status) {
+		this.status = status;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return "ErrorResponse [status=" + status + ", message=" + message + "]";
+	}
+	
+}

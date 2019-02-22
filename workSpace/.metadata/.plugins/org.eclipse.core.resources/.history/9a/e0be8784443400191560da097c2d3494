@@ -1,0 +1,24 @@
+package com.scb.assignment.bookStoreRestApi.jsonObject;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import com.scb.assignment.bookStoreRestApi.model.Book;
+
+public class UserResult {
+
+    private String name;
+    private String surname;
+    private Date dateOfBirth;
+    private List<Integer> orders = new ArrayList<>();
+    private String token;
+    private Integer randomKey;
+    private Timestamp tokenExpiredTime;
+}

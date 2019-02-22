@@ -1,0 +1,7 @@
+package com.scb.assignment.bookStoreRestApi.jsonObject;
+
+public class OrderResult {
+	private String price;
+	
+	
+}

@@ -1,0 +1,7 @@
+package com.scb.assignment.bookStoreRestApi.exception;
+
+public class ItemNotFoundException extends Exception{
+	ItemNotFoundException(String message){
+		super(,);
+	}
+}

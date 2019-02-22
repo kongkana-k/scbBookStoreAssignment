@@ -1,0 +1,81 @@
+package com.scb.assignment.bookStoreRestApi.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Books")
+public class Book {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String bookName;
+	private String authorName;
+	private Integer price;
+	@ManyToMany(mappedBy = "orders")
+	private List<User> users = new ArrayList<>();
+
+	protected Book() {
+	}
+
+	public Book(Long id, String bookName, String authorName, Integer price) {
+		this.id = id;
+		this.bookName = bookName;
+		this.authorName = authorName;
+		this.price = price;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", bookName=" + bookName + ", authorName=" + authorName + ", price=" + price
+				+ ", users=" + users + "]";
+	}
+
+}

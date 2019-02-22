@@ -1,0 +1,5 @@
+package com.scb.assignment.bookStoreRestApi.jsonObject;
+
+public class SuccessObject {
+
+}

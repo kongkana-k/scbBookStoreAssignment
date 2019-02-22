@@ -1,0 +1,14 @@
+package com.scb.assignment.bookStoreRestApi.utility;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class CryptographUtility {
+	
+	public static String shaToBase64() throws NoSuchAlgorithmException {
+		MessageDigest digest = MessageDigest.getInstance("SHA-256");
+		digest.digest();
+		return "";
+	}
+	
+}

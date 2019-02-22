@@ -1,0 +1,22 @@
+package com.scb.assignment.bookStoreRestApi.utility;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minidev.json.JSONObject;
+
+public class JsonResultUtility {
+
+	public static String getJsonResult(boolean success) {
+		Map<String, String> result = new HashMap<>();
+		result.put("result", success? "success": "failed");
+		return JSONObject.toJSONString(result);
+	}
+	
+	public static String getJsonResult(boolean success, String key, String value) {
+		Map<String, String> result = new HashMap<>();
+		result.put("result", success? "success": "failed");
+		
+		return JSONObject.toJSONString(result);
+	}
+}

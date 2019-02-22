@@ -1,0 +1,52 @@
+package com.scb.assignment.bookStoreRestApi.controller;
+
+import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.scb.assignment.bookStoreRestApi.exception.AuthenticationException;
+import com.scb.assignment.bookStoreRestApi.exception.InternalErrorException;
+import com.scb.assignment.bookStoreRestApi.exception.InvalidTokenException;
+import com.scb.assignment.bookStoreRestApi.exception.ItemNotFoundException;
+import com.scb.assignment.bookStoreRestApi.exception.TokenExpiredException;
+import com.scb.assignment.bookStoreRestApi.model.User;
+import com.scb.assignment.bookStoreRestApi.model.UserRepository;
+import com.scb.assignment.bookStoreRestApi.utility.CryptographUtility;
+
+import net.minidev.json.JSONObject;
+
+@RestController
+public class AuthenticationController {
+	@Autowired
+	UserRepository userRepository;
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password) throws AuthenticationException, InternalErrorException {
+		User user = userRepository.findByUsername(username);
+		if (user == null) {
+			throw new AuthenticationException("invalid username or password.");
+		}
+		try {
+			String base64ShaPwd = CryptographUtility.shaToBase64(password, user.getSalt());
+			if (!user.getPassword().equals(base64ShaPwd)) {
+				throw new AuthenticationException("invalid username or password.");
+			}
+		} catch (NoSuchAlgorithmException e) {
+			throw new InternalErrorException(e.getMessage());
+		}
+		int randomKey = CryptographUtility.randomInt();
+		String token = CryptographUtility.shaToBase64(user.getUsername(), randomKey);
+		user.setRandomKey(randomKey);
+		user.setToken(token);
+		user.setTokenExpiredTime(Timestamp.valueOf(LocalDateTime.now().plusMinutes(10));
+		userRepository.save(user)
+		return JSONObject.toJSONString(map)
+	}
+}

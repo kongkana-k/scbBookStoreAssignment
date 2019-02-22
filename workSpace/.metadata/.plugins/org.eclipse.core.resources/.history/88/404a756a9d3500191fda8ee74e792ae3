@@ -1,0 +1,28 @@
+package com.scb.assignment.scbBookStoreRestApi;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.scb.assignment.bookStoreRestApi.jsonObject.CreateUserRequest;
+import com.scb.assignment.bookStoreRestApi.jsonObject.LoginRequest;
+
+public class TestUtility {
+	private HttpEntity<String> createLoginEntityRequest(String username, String password)
+			throws JsonProcessingException {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectMapper objectMapper = new ObjectMapper();
+		String requestJson = objectMapper.writeValueAsString(new LoginRequest(username, password));
+		return new HttpEntity<String>(requestJson, headers);
+	}
+
+	private HttpEntity<String> createUserEntityRequest(String username, String password, String dateOfBirth)
+			throws JsonProcessingException {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		String requestJson = objectMapper.writeValueAsString(new CreateUserRequest(username, password, dateOfBirth));
+		return new HttpEntity<String>(requestJson, headers);
+	}
+}

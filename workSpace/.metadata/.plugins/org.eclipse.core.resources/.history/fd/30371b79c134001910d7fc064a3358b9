@@ -1,0 +1,58 @@
+package com.scb.assignment.bookStoreRestApi.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Orders")
+public class Order {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private Integer totalPrice;
+	@OneToMany(mappedBy = "OrderItems")
+    private List<OrderItem> orderItems;
+	
+	public Order(Long id, Integer totalPrice, List<OrderItem> orderItems) {
+		super();
+		this.id = id;
+		this.totalPrice = totalPrice;
+		this.orderItems = orderItems;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", totalPrice=" + totalPrice + ", orderItems=" + orderItems + "]";
+	}
+	
+}

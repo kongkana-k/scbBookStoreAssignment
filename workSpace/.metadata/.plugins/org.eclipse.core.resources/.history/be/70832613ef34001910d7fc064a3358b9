@@ -1,0 +1,5 @@
+package com.scb.assignment.bookStoreRestApi.model;
+
+public interface OrderItemRepository {
+
+}

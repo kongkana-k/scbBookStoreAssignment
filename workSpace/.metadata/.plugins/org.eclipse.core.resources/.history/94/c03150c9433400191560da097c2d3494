@@ -1,0 +1,13 @@
+package com.scb.assignment.bookStoreRestApi.jsonObject;
+
+public class LoginResult {
+	private Boolean success;
+	private String token;
+	public LoginResult(String token) {
+		super();
+		success = true;
+		this.token = token;
+	}
+	
+	
+}

@@ -1,0 +1,6 @@
+package com.scb.assignment.bookStoreRestApi.error;
+
+public class ErrorResponse {
+   private HttpStatus status;
+   private String message;
+}
