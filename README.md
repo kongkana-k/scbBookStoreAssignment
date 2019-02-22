@@ -16,10 +16,8 @@ Note that you must replace token parameter with your token received from the log
 
 ###### Document
 
--ERD => scbBookStoreAssignment\document\database
-
--Sequence diagrams => scbBookStoreAssignment\document\sequenceDiagram
-
--Swagger document => scbBookStoreAssignment\document\swagger or https://app.swaggerhub.com/apis/kongkana/scbBookStoreAssignment/1.0.0
+- ERD => scbBookStoreAssignment\document\database
+- Sequence diagrams => scbBookStoreAssignment\document\sequenceDiagram
+- Swagger document => scbBookStoreAssignment\document\swagger or https://app.swaggerhub.com/apis/kongkana/scbBookStoreAssignment/1.0.0
 
 For more information, please contact kongkana@gmail.com
